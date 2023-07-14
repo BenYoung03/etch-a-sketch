@@ -12,3 +12,11 @@ function createGrid(gridSize) {
 }
 
 createGrid(gridSize);
+
+const cells = document.querySelectorAll('.square');
+
+cells.forEach((cell) => {
+    cell.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundColor = 'black';
+    });
+});
