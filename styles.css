@@ -9,10 +9,8 @@ body {
     max-width: 500px; 
     max-height: 500px;  
     margin: 0 auto;
+    border: 5px solid #000;
 }
 
-.square {
-    border: 1px solid black;
-}
 
 
