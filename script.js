@@ -2,6 +2,11 @@ let container = document.querySelector('.container');
 let gridSize = 16;
 let colour = "black";
 
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+
 function createGrid(gridSize) {
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
@@ -9,20 +14,24 @@ function createGrid(gridSize) {
         square.style.height = `${500 / gridSize}px`;
         square.style.backgroundColor = 'white';
         square.classList.add('square');
+        square.addEventListener('mouseover', changeColour)
+        square.addEventListener('mousedown', changeColour)
         container.appendChild(square);
     }
 }
 
 createGrid(gridSize);
 
-const cells = document.querySelectorAll('.square');
 const buttons = document.querySelectorAll('.button');
 
-cells.forEach((cell) => {
-    cell.addEventListener('mouseover', (e) => {
-        e.target.style.backgroundColor = colour;
-    });
-});
+function changeColour(e) {
+    if (e.type === 'mouseover' && !mouseDown) return;
+    if (colour === 'black') {
+        e.target.style.backgroundColor = 'black';
+    } else if (colour === 'white') {
+        e.target.style.backgroundColor = 'white';
+    }
+}
 
 const changeBtn = document.getElementById('change-grid');
 changeBtn.addEventListener('click', () => {
@@ -35,12 +44,7 @@ changeBtn.addEventListener('click', () => {
         container.removeChild(container.firstChild);
     }
     createGrid(gridSize);
-    const cells = document.querySelectorAll('.square');
-    cells.forEach((cell) => {
-        cell.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = colour;
-        });
-    });
+    
 });
 
 const clearBtn = document.getElementById('clear-grid');
@@ -49,12 +53,6 @@ clearBtn.addEventListener('click', () => {
         container.removeChild(container.firstChild);
     }
     createGrid(gridSize);
-    const cells = document.querySelectorAll('.square');
-    cells.forEach((cell) => {
-        cell.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = colour;
-        });
-    });
 });
 
 const eraser = document.getElementById('eraser');
