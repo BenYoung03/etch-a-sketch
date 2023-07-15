@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 body {
     padding: 0;
     margin: 0;
+    background-color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
@@ -8,9 +15,34 @@ body {
     flex-wrap: wrap;
     max-width: 500px; 
     max-height: 500px;  
-    margin: 0 auto;
     box-shadow: 0 3px 15px rgb(0 0 0 / 0.2);
 }
 
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.buttons {
+    margin: 10px;
+    width: 8rem;
+    height: 3rem;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    transition-duration: 50ms;
+    background-color: #e8e8e8;
+    font-size: 15px;
+}
+
+.buttons:hover {
+    background-color: #d8d8d8;
+}
+
+.game {
+    display: flex;
+}
 
 
