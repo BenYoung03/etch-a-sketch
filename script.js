@@ -16,6 +16,7 @@ function createGrid(gridSize) {
 createGrid(gridSize);
 
 const cells = document.querySelectorAll('.square');
+const buttons = document.querySelectorAll('.button');
 
 cells.forEach((cell) => {
     cell.addEventListener('mouseover', (e) => {
@@ -59,9 +60,17 @@ clearBtn.addEventListener('click', () => {
 const eraser = document.getElementById('eraser');
 eraser.addEventListener('click', () => {
     colour = 'white';
+    buttons.forEach((button) => {
+        button.classList.remove('active');
+    });
+    eraser.classList.add('active');
 });
 
 const pencil = document.getElementById('pencil');
 pencil.addEventListener('click', () => {
     colour = 'black';
+    buttons.forEach((button) => {
+        button.classList.remove('active');
+    });
+    pencil.classList.add('active');
 });

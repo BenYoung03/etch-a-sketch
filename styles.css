@@ -32,7 +32,7 @@ h1 {
     margin: 10px;
 }
 
-.buttons {
+.button {
     margin: 10px;
     width: 8rem;
     height: 3rem;
@@ -44,8 +44,13 @@ h1 {
     font-size: 15px;
 }
 
-.buttons:hover {
+.button:hover {
     background-color: #d8d8d8;
+}
+
+.button.active {
+    background-color: black;
+    color: white;
 }
 
 .game {
@@ -75,6 +80,8 @@ h1 {
     height: 3.5rem;
     background-color: black;
 }
+
+
 
 
 
