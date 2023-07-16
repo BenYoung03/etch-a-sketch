@@ -22,6 +22,9 @@ container.addEventListener("click", () => {
     else container.removeEventListener("mouseover", changeColour);
 });
 
+container.addEventListener("dblclick", changeColour);
+
+
 const buttons = document.querySelectorAll('.button');
 
 function changeColour(e) {
