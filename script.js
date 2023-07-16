@@ -68,11 +68,11 @@ slider.oninput = function() {
     output.innerHTML = `${this.value} x ${this.value}`;
 }
 
-const changeBtn = document.getElementById('change-grid');
-changeBtn.addEventListener('click', () => {
-    gridSize = slider.value;
+slider.addEventListener('mouseup', () => {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+    gridSize = slider.value;
     createGrid(gridSize);
 });
+
