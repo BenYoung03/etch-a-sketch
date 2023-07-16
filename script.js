@@ -6,10 +6,11 @@ let shade = false;
 createGrid(gridSize);
 
 function createGrid(gridSize) {
+    let gridDimensions = container.clientWidth;
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
-        square.style.width = `${500 / gridSize}px`;
-        square.style.height = `${500 / gridSize}px`;
+        square.style.width = `${gridDimensions / gridSize}px`;
+        square.style.height = `${gridDimensions / gridSize}px`;
         square.classList.add('square');
         square.style.backgroundColor = 'white';
         container.appendChild(square);
@@ -37,6 +38,13 @@ container.addEventListener("click", () => {
 container.addEventListener("dblclick", changeColour);
 
 const buttons = document.querySelectorAll('.button');
+
+window.addEventListener('resize', () => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    createGrid(gridSize);
+});
 
 function changeColour(e) {
     let opacity = Number(e.target.style.opacity);
