@@ -1,6 +1,7 @@
 let container = document.querySelector('.container');
 let gridSize = 16;
 let colour = "black";
+let shade = false;
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
@@ -24,13 +25,30 @@ createGrid(gridSize);
 const buttons = document.querySelectorAll('.button');
 
 function changeColour(e) {
+    let opacity = Number(e.target.style.opacity);
     if (e.type === 'mouseover' && !mouseDown) return;
-    if (colour === 'black') {
-        e.target.style.backgroundColor = 'black';
-    } else if (colour === 'white') {
-        e.target.style.backgroundColor = 'white';
-    } else if (colour === 'rainbow'){
-        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    if(!shade) {
+        if (colour === 'black') {
+            e.target.style.backgroundColor = 'black';
+            e.target.style.opacity = 1;
+        } else if (colour === 'white') {
+            e.target.style.backgroundColor = 'white';
+            e.target.style.opacity = 1;
+        } else if (colour === 'rainbow'){
+            e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            e.target.style.opacity = 1;
+        }
+    } else {
+        if (colour === 'black') {
+            e.target.style.backgroundColor = 'black';
+            e.target.style.opacity = opacity + 0.1;
+        } else if (colour === 'white') {
+            e.target.style.backgroundColor = 'white';
+            e.target.style.opacity = opacity + 0.1;
+        } else if (colour === 'rainbow'){
+            e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            e.target.style.opacity = opacity + 0.1;
+        }
     }
 }
 
@@ -45,6 +63,7 @@ clearBtn.addEventListener('click', () => {
 const eraser = document.getElementById('eraser');
 eraser.addEventListener('click', () => {
     colour = 'white';
+    shade = false;
     buttons.forEach((button) => {
         button.classList.remove('active');
     });
@@ -57,6 +76,7 @@ pencil.addEventListener('click', () => {
     buttons.forEach((button) => {
         button.classList.remove('active');
     });
+    if(shade) shading.classList.add('active');
     pencil.classList.add('active');
 });
 
@@ -66,7 +86,16 @@ rainbow.addEventListener('click', () => {
     buttons.forEach((button) => {
         button.classList.remove('active');
     });
+    if(shade) shading.classList.add('active');
     rainbow.classList.add('active');
+});
+
+const shading = document.getElementById('shading');
+shading.addEventListener('click', () => {
+    if(colour === 'white') return;
+    shade = !shade;
+    if(shade) shading.classList.add('active');
+    else shading.classList.remove('active');
 });
 
 let slider = document.getElementById('slider');
