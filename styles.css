@@ -39,18 +39,20 @@ h1 {
     border: 2px solid black;
     border-radius: 15px;
     cursor: pointer;
-    transition-duration: 50ms;
+    transition-duration: 150ms;
     background-color: #e8e8e8;
     font-size: 15px;
 }
 
 .button:hover {
     background-color: #d8d8d8;
+    transform: scale(1.1);
 }
 
 .button.active {
     background-color: black;
     color: white;
+    transform: scale(1.1);
 }
 
 .game {
