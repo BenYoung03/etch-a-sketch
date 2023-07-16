@@ -29,6 +29,8 @@ function changeColour(e) {
         e.target.style.backgroundColor = 'black';
     } else if (colour === 'white') {
         e.target.style.backgroundColor = 'white';
+    } else if (colour === 'rainbow'){
+        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
     }
 }
 
@@ -56,6 +58,15 @@ pencil.addEventListener('click', () => {
         button.classList.remove('active');
     });
     pencil.classList.add('active');
+});
+
+const rainbow = document.getElementById('rainbow');
+rainbow.addEventListener('click', () => {
+    colour = 'rainbow';
+    buttons.forEach((button) => {
+        button.classList.remove('active');
+    });
+    rainbow.classList.add('active');
 });
 
 let slider = document.getElementById('slider');
