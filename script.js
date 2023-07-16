@@ -33,20 +33,6 @@ function changeColour(e) {
     }
 }
 
-const changeBtn = document.getElementById('change-grid');
-changeBtn.addEventListener('click', () => {
-    gridSize = prompt('Enter a number between 1 and 100');
-    if (gridSize > 100 || gridSize < 1) {
-        alert('Please enter a number between 1 and 100');
-        return;
-    }
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    createGrid(gridSize);
-    
-});
-
 const clearBtn = document.getElementById('clear-grid');
 clearBtn.addEventListener('click', () => {
     while (container.firstChild) {
@@ -71,4 +57,22 @@ pencil.addEventListener('click', () => {
         button.classList.remove('active');
     });
     pencil.classList.add('active');
+});
+
+let slider = document.getElementById('slider');
+let output = document.getElementById('demo');
+
+output.innerHTML = `${16} x ${16}`;
+
+slider.oninput = function() {
+    output.innerHTML = `${this.value} x ${this.value}`;
+}
+
+const changeBtn = document.getElementById('change-grid');
+changeBtn.addEventListener('click', () => {
+    gridSize = slider.value;
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    createGrid(gridSize);
 });
