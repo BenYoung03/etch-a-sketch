@@ -1,32 +1,31 @@
 let container = document.querySelector('.container');
 let gridSize = 16;
-let colour = "black";
+let colour = 'black';
 let shade = false;
 
-let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+createGrid(gridSize);
 
 function createGrid(gridSize) {
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
         square.style.width = `${500 / gridSize}px`;
         square.style.height = `${500 / gridSize}px`;
-        square.style.backgroundColor = 'white';
         square.classList.add('square');
-        square.addEventListener('mouseover', changeColour)
-        square.addEventListener('mousedown', changeColour)
+        square.style.backgroundColor = 'white';
         container.appendChild(square);
     }
 }
-
-createGrid(gridSize);
+let toggle = false;
+container.addEventListener("click", () => {
+    toggle = !toggle;
+    if(toggle) container.addEventListener("mouseover", changeColour);
+    else container.removeEventListener("mouseover", changeColour);
+});
 
 const buttons = document.querySelectorAll('.button');
 
 function changeColour(e) {
     let opacity = Number(e.target.style.opacity);
-    if (e.type === 'mouseover' && !mouseDown) return;
     if(!shade) {
         if (colour === 'black') {
             e.target.style.backgroundColor = 'black';

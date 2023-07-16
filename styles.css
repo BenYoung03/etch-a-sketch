@@ -9,13 +9,22 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 75px;
     margin: 0;
     padding: 0;
     color: #e8e8e8;
     text-shadow: 0 0 10px black;
     margin: 50px;
+    margin-bottom: 0px;
+}
+
+#instrucitons {
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    color: #e8e8e8;
+    text-shadow: 0 0 5px black;
+    margin-bottom: 50px;
 }
 
 .container {
@@ -24,6 +33,10 @@ h1 {
     width: 500px; 
     height: 500px;  
     box-shadow: 0 3px 15px rgb(0 0 0 / 0.2);
+    cursor: default;
+}
+
+.square {
     cursor: default;
 }
 
