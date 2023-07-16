@@ -129,7 +129,8 @@ h1 {
 .slider-container {
     margin-top: 10px;
 }
-.slider-container p {
+.slider-container p,
+.drawing {
     font-size: 15px;
     margin: 0;
     padding: 0;

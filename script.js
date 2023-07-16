@@ -15,15 +15,26 @@ function createGrid(gridSize) {
         container.appendChild(square);
     }
 }
+
 let toggle = false;
+let drawing = document.getElementById('drawing');
+drawing.innerHTML = `Off`;
+
 container.addEventListener("click", () => {
     toggle = !toggle;
-    if(toggle) container.addEventListener("mouseover", changeColour);
-    else container.removeEventListener("mouseover", changeColour);
+    if(toggle) {
+        container.addEventListener("mouseover", changeColour);
+        drawing.innerHTML = `On`;
+        drawing.style.color = 'green';
+    }
+    else {
+        container.removeEventListener("mouseover", changeColour);
+        drawing.innerHTML = `Off`;
+        drawing.style.color = 'red';
+    }
 });
 
 container.addEventListener("dblclick", changeColour);
-
 
 const buttons = document.querySelectorAll('.button');
 
