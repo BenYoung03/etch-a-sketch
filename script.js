@@ -2,26 +2,16 @@ let container = document.querySelector('.container');
 let gridSize = 16;
 let colour = 'black';
 let shade = false;
-let resize = false;
 
 createGrid(gridSize);
 
 function createGrid(gridSize) {
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
-        if(container.offsetWidth === 500){
-            square.style.width = `${500 / gridSize}px`;
-            square.style.height = `${500 / gridSize}px`;
-        } else if(container.offsetWidth === 400){
-            square.style.width = `${400 / gridSize}px`;
-            square.style.height = `${400 / gridSize}px`;
-        } else if(container.offsetWidth === 300){  
-            square.style.width = `${300 / gridSize}px`;
-            square.style.height = `${300 / gridSize}px`;
-        }  
+        square.style.width = `${500 / gridSize}px`;
+        square.style.height = `${500 / gridSize}px`;
         square.classList.add('square');
         square.style.backgroundColor = 'white';
-        
         container.appendChild(square);
     }
 }
@@ -42,14 +32,6 @@ container.addEventListener("click", () => {
         drawing.innerHTML = `Off`;
         drawing.style.color = 'red';
     }
-});
-
-
-window.addEventListener('resize', () => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    createGrid(gridSize);
 });
 
 container.addEventListener("dblclick", changeColour);
