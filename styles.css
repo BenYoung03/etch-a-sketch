@@ -128,7 +128,6 @@ h1 {
     cursor: pointer;
 }
 
-
 .slider-container {
     margin-top: 10px;
 }
@@ -153,6 +152,47 @@ h1 {
     .container {
         width: 400px;
         height: 400px;
+    }
+    .button {
+        margin: 10px;
+        width: 7.5rem;
+        height: 2.5rem;
+        border: 2px solid black;
+        border-radius: 15px;
+        cursor: pointer;
+        transition-duration: 150ms;
+        background-color: #e8e8e8;
+        font-size: 12px;
+    }
+
+    .slider-container p,
+    .drawing {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    #slider {
+        -webkit-appearance: none;
+        width: 75%;
+        height: 20px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        border-radius: 15px;
+}
+
+    #slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height:20px;
+        background: black;
+        border-radius: 8px;
+        cursor: pointer;
     }
 }
 
