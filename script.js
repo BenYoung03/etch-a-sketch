@@ -60,7 +60,7 @@ pencil.addEventListener('click', () => {
 });
 
 let slider = document.getElementById('slider');
-let output = document.getElementById('demo');
+let output = document.getElementById('size');
 
 output.innerHTML = `${16} x ${16}`;
 
