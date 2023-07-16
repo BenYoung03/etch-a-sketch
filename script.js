@@ -6,7 +6,6 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-
 function createGrid(gridSize) {
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
