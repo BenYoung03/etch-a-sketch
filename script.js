@@ -46,28 +46,34 @@ window.addEventListener('resize', () => {
     createGrid(gridSize);
 });
 
+let colourPicker = document.getElementById('colorpicker');
+colourPicker.addEventListener('input', function() {
+    if(brush.classList.contains('active')) {
+    colour = colourPicker.value;
+    }
+});
 function changeColour(e) {
     let opacity = Number(e.target.style.opacity);
     if(!shade) {
-        if (colour === 'black') {
-            e.target.style.backgroundColor = 'black';
-            e.target.style.opacity = 1;
-        } else if (colour === 'white') {
+        if (colour === 'white') {
             e.target.style.backgroundColor = 'white';
             e.target.style.opacity = 1;
         } else if (colour === 'rainbow'){
             e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            e.target.style.opacity = 1;
+        } else {
+            e.target.style.backgroundColor = colourPicker.value;
             e.target.style.opacity = 1;
         }
     } else {
-        if (colour === 'black') {
-            e.target.style.backgroundColor = 'black';
-            e.target.style.opacity = opacity + 0.1;
-        } else if (colour === 'white') {
+        if (colour === 'white') {
             e.target.style.backgroundColor = 'white';
             e.target.style.opacity = opacity + 0.1;
         } else if (colour === 'rainbow'){
             e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            e.target.style.opacity = opacity + 0.1;
+        } else {
+            e.target.style.backgroundColor = colourPicker.value;
             e.target.style.opacity = opacity + 0.1;
         }
     }
@@ -91,14 +97,14 @@ eraser.addEventListener('click', () => {
     eraser.classList.add('active');
 });
 
-const pencil = document.getElementById('pencil');
-pencil.addEventListener('click', () => {
-    colour = 'black';
+const brush = document.getElementById('brush');
+brush.addEventListener('click', () => {
+    colour = colourPicker.value;
     buttons.forEach((button) => {
         button.classList.remove('active');
     });
     if(shade) shading.classList.add('active');
-    pencil.classList.add('active');
+    brush.classList.add('active');
 });
 
 const rainbow = document.getElementById('rainbow');
