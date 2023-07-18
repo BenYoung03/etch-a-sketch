@@ -38,6 +38,7 @@ h1 {
 
 .square {
     cursor: default;
+    transition-duration: 150ms;
 }
 
 .buttons-container {
@@ -87,7 +88,7 @@ h1 {
 .footer a:hover{
     text-decoration: none;
     color: red; 
-    font-size: 19px;
+    font-size: 19.5px;
 }
 
 .footer {
