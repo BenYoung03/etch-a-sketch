@@ -28,7 +28,7 @@ container.addEventListener("mousedown",  (_) => { clicked = true });
 document.addEventListener("mouseup", (_) => { clicked = false });
 document.addEventListener("mouseleave", (_) => { clicked = false });
 
-container.addEventListener("mousemove", (e) => {
+container.addEventListener("mouseover", (e) => {
     if (clicked) {
         changeColour(e);
         drawing.innerHTML = `On`;
