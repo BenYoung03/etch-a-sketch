@@ -2,6 +2,7 @@ let container = document.querySelector('.container');
 let gridSize = 16;
 let colour = 'black';
 let shade = false;
+let gridDimensions = 450;
 
 createGrid(gridSize);
 
@@ -9,7 +10,6 @@ function createGrid(gridSize) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    let gridDimensions = container.clientWidth;
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
         square.style.width = `${gridDimensions / gridSize}px`;
