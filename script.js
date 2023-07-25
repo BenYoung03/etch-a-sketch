@@ -39,13 +39,6 @@ container.addEventListener("dblclick", changeColour);
 
 const buttons = document.querySelectorAll('.button');
 
-window.addEventListener('resize', () => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    createGrid(gridSize);
-});
-
 let colourPicker = document.getElementById('colorpicker');
 colourPicker.addEventListener('input', function() {
     if(brush.classList.contains('active')) {

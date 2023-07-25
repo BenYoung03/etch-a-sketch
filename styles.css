@@ -18,7 +18,7 @@ h1 {
     margin-bottom: 0px;
 }
 
-#instrucitons {
+#instructions {
     font-size: 25px;
     margin: 0;
     padding: 0;
@@ -30,8 +30,8 @@ h1 {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 500px; 
-    height: 500px;  
+    width: 450px; 
+    height: 450px;  
     box-shadow: 0 3px 15px rgb(0 0 0 / 0.2);
     cursor: default;
 }
@@ -160,8 +160,8 @@ h1 {
         gap: 50px;
 }
     .container {
-        width: 400px;
-        height: 400px;
+        width: 450px;
+        height: 450px;
     }
 
     .button {
@@ -205,9 +205,28 @@ h1 {
         border-radius: 8px;
         cursor: pointer;
     }
+
+    h1 {
+        font-size: 60px;
+        margin: 0;
+        padding: 0;
+        color: #e8e8e8;
+        text-shadow: 0 0 10px black;
+        margin: 50px;
+        margin-bottom: 0px;
+    }
+    
+    #instructions {
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        color: #e8e8e8;
+        text-shadow: 0 0 5px black;
+        margin-bottom: 50px;
+    }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 675px) {
     h1 {
         font-size: 50px;
     }
@@ -216,8 +235,4 @@ h1 {
         flex-direction: column-reverse;
     }
 
-    .container {
-        width: 300px;
-        height: 300px;
-    }
 }
