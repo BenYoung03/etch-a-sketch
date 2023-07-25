@@ -6,6 +6,9 @@ let shade = false;
 createGrid(gridSize);
 
 function createGrid(gridSize) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     let gridDimensions = container.clientWidth;
     for (i = 0; i < gridSize * gridSize; i++) {
         let square = document.createElement('div');
@@ -77,9 +80,6 @@ function changeColour(e) {
 
 const clearBtn = document.getElementById('clear-grid');
 clearBtn.addEventListener('click', () => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
     createGrid(gridSize);
 });
 
@@ -131,9 +131,6 @@ slider.oninput = function() {
 }
 
 slider.addEventListener('mouseup', () => {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
     gridSize = slider.value;
     createGrid(gridSize);
 });
