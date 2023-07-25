@@ -17,23 +17,28 @@ function createGrid(gridSize) {
     }
 }
 
-let toggle = false;
+let clicked = false;
 let drawing = document.getElementById('drawing');
 drawing.innerHTML = `Off`;
 
-container.addEventListener("click", () => {
-    toggle = !toggle;
-    if(toggle) {
-        container.addEventListener("mouseover", changeColour);
+container.addEventListener("mousedown",  (_) => { clicked = true });
+container.addEventListener("mouseup", (_) => { clicked = false });
+container.addEventListener("mouseleave", (_) => { clicked = false });
+
+document.addEventListener("mousemove", () => {
+    if(clicked) {
+        container.addEventListener("mousemove", changeColour);
         drawing.innerHTML = `On`;
         drawing.style.color = 'green';
-    }
-    else {
-        container.removeEventListener("mouseover", changeColour);
-        drawing.innerHTML = `Off`;
+    } else{
+        container.removeEventListener("mousemove", changeColour);
+        drawing.innerHTML = `Off`;   
         drawing.style.color = 'red';
     }
+
+    
 });
+
 
 container.addEventListener("dblclick", changeColour);
 
